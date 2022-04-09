@@ -5,8 +5,7 @@ LINK_WINAPI = -lopengl32 -lglu32 -lgdi32 -luser32 -lcomctl32 -lkernel32 -lshell3
 LINK_XLIB   = -lX11 -lGL -lGLX
 
 run: app
-	-./app
-	-app
+	./app
 
 app: main.cpp
 ifeq ($(OS),Windows_NT)
