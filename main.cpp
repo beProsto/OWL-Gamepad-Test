@@ -1,4 +1,4 @@
- #include <iostream>
+#include <iostream>
 #include <thread>
 
 // #define DEBUG_OUT_SET_ERR_OFF
@@ -115,31 +115,31 @@ int Main(const std::vector<std::string>& _args) {
 		eventDelay.Start();
 		window.PollEvents();
 
-        if(window.Keyboard.IsKeyPressed(window.Keyboard.Escape)) {
-            window.Close();
-        }
-        if(window.Keyboard.GetKeyData().KeyEnum == window.Keyboard.F11) {
-            window.SetFullScreen(!window.IsFullScreen());
-        }
-        context.Resize(window.GetSize());
-        context.Clear(colorPalette[0]);
+		if(window.Keyboard.IsKeyPressed(window.Keyboard.Escape)) {
+			window.Close();
+		}
+		if(window.Keyboard.GetKeyData().KeyEnum == window.Keyboard.F11) {
+			window.SetFullScreen(!window.IsFullScreen());
+		}
+		context.Resize(window.GetSize());
+		context.Clear(colorPalette[0]);
 
-        unsigned int uiSize = (
-            (window.GetSize().x > window.GetSize().y) ? 
-            window.GetSize().y : 
-            window.GetSize().x
-        );
-        
+		unsigned int uiSize = (
+			(window.GetSize().x > window.GetSize().y) ? 
+			window.GetSize().y : 
+			window.GetSize().x
+		);
+		
 		// std::cout << "LeftX = " << window.Gamepad[0].GetLeftStick().x << "\nLeftY = " << window.Gamepad[0].GetLeftStick().y << std::endl;
 
-        DrawStickRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetLeftStick(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ThumbLeft), uiSize, 0.25, 0.7, 0.4);
-        DrawStickRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetRightStick(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ThumbRight), uiSize, 0.75, 0.7, 0.4);
+		DrawStickRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetLeftStick(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ThumbLeft), uiSize, 0.25, 0.7, 0.4);
+		DrawStickRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetRightStick(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ThumbRight), uiSize, 0.75, 0.7, 0.4);
 
 		DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ShoulderLeft), uiSize, 0.12f, 0.1f, 0.12);
 		DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::ShoulderRight), uiSize, 0.88f, 0.1f, 0.12);
 
-        DrawTriggerRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetLeftTrigger(), uiSize, 0.05, 0.1, 0.25);
-        DrawTriggerRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetRightTrigger(), uiSize, 0.95, 0.1, 0.25);
+		DrawTriggerRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetLeftTrigger(), uiSize, 0.05, 0.1, 0.25);
+		DrawTriggerRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].GetRightTrigger(), uiSize, 0.95, 0.1, 0.25);
 
 		DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::Back),  uiSize, 1.f / 2.f - 0.12 / 2.f, 0.2f, 0.12);
 		DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(OWL::Window::GamepadEvent::Start), uiSize, 1.f / 2.f + 0.12 / 2.f, 0.2f, 0.12);
@@ -163,13 +163,13 @@ int Main(const std::vector<std::string>& _args) {
 
 		DrawTriButtonRep(context.GetPixelData(), context.GetSize(), uiSize, 1.f / 5.f, 0.4f, 0.08, buttonsDPad);
 
-        // for(int i = 0; i < 14; i++) {
-        //     float x = i % 7;
-        //     float y = i / 7;
-        //     DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(i), uiSize, x / 12.0f + 0.25f, y / 10.0f + 0.2f, 0.15);
-        // }
+		// for(int i = 0; i < 14; i++) {
+		//     float x = i % 7;
+		//     float y = i / 7;
+		//     DrawButtonRep(context.GetPixelData(), context.GetSize(), window.Gamepad[0].IsButtonPressed(i), uiSize, x / 12.0f + 0.25f, y / 10.0f + 0.2f, 0.15);
+		// }
 
-        context.BlitToScreen();
+		context.BlitToScreen();
 		eventDelay.End();
 	}
 
