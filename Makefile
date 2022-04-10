@@ -12,5 +12,5 @@ endif
 run: $(EXE)
 	./$(EXE)
 
-app: main.cpp
+$(EXE): main.cpp
 	$(CXX) main.cpp $(LINK_OWL) $(CXX_FLAGS) -o $(EXE)
