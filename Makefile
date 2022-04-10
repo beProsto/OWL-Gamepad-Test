@@ -14,3 +14,7 @@ run: $(EXE)
 
 $(EXE): main.cpp
 	$(CXX) main.cpp $(LINK_OWL) $(CXX_FLAGS) -o $(EXE)
+
+clean:
+	-rm $(EXE)
+	-del $(EXE)
